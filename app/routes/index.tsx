@@ -1,8 +1,4 @@
-import { styled } from "~/stiches.config";
-
-const Box = styled("div", {
-  backgroundColor: "#f0f0f0",
-});
+import { Box } from "~/components/Box";
 
 export default function Index() {
   return (
