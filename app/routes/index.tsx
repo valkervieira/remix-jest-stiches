@@ -7,7 +7,7 @@ export default function Index() {
   return (
     <div>
       <Button onClick={() => setCount(count - 1)}>Decrement</Button>
-      <span>{count}</span>
+      <span role="log">{count}</span>
       <Button onClick={() => setCount(count + 1)}>Increment</Button>
     </div>
   );
