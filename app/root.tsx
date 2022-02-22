@@ -4,9 +4,10 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration
+  ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
+import { getCssText } from "~/stiches.config";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
@@ -20,6 +21,10 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+        <style
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: getCssText() }}
+        />
       </head>
       <body>
         <Outlet />

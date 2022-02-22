@@ -1,5 +1,7 @@
 import { renderToString } from "react-dom/server";
 import { RemixServer } from "remix";
+import { getCssText } from "~/stiches.config";
+
 import type { EntryContext } from "remix";
 
 export default function handleRequest(
@@ -10,12 +12,12 @@ export default function handleRequest(
 ) {
   const markup = renderToString(
     <RemixServer context={remixContext} url={request.url} />
-  );
+  ).replace(/<\/head>/, `<style>${getCssText()}</style></head>`);
 
   responseHeaders.set("Content-Type", "text/html");
 
   return new Response("<!DOCTYPE html>" + markup, {
     status: responseStatusCode,
-    headers: responseHeaders
+    headers: responseHeaders,
   });
 }
