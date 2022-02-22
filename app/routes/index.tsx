@@ -1,9 +1,14 @@
-import { Box } from "~/components/Box";
+import { useState } from "react";
+import { Button } from "~/components/Button";
 
 export default function Index() {
+  const [count, setCount] = useState<number>(0);
+
   return (
-    <Box>
-      <h1>Welcome to Remix</h1>
-    </Box>
+    <div>
+      <Button onClick={() => setCount(count - 1)}>Decrement</Button>
+      <span>{count}</span>
+      <Button onClick={() => setCount(count + 1)}>Increment</Button>
+    </div>
   );
 }
